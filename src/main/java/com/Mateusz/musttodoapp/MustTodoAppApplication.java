@@ -13,6 +13,7 @@ public class MustTodoAppApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(MustTodoAppApplication.class, args);
 	}
+	
 	@Bean
 	Validator validator() {
 		return new LocalValidatorFactoryBean();
