@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-public class InfoController {
+class InfoController {
     private DataSourceProperties dataSource;
     private TaskConfigurationProperties myProp;
 
