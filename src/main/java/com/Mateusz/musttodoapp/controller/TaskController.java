@@ -5,6 +5,7 @@ import com.Mateusz.musttodoapp.model.Task;
 import com.Mateusz.musttodoapp.model.TaskRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.context.annotation.Profile;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.transaction.annotation.Transactional;
@@ -15,6 +16,7 @@ import java.net.URI;
 import java.util.List;
 
 @RestController
+@Profile("!prod")
 class TaskController {
     private static final Logger logger = LoggerFactory.getLogger(TaskController.class);
     private final TaskRepository repository;

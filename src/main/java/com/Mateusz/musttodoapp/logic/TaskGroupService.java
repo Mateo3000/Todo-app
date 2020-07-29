@@ -5,12 +5,10 @@ import com.Mateusz.musttodoapp.model.TaskGroupRepository;
 import com.Mateusz.musttodoapp.model.TaskRepository;
 import com.Mateusz.musttodoapp.model.projection.GroupReadModel;
 import com.Mateusz.musttodoapp.model.projection.GroupWriteModel;
-import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
-@Service
 public class TaskGroupService {
     private TaskGroupRepository repository;
     private TaskRepository taskRepository;

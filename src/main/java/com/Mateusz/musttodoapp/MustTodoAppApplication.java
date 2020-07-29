@@ -16,6 +16,7 @@ public class MustTodoAppApplication {
 	
 	@Bean
 	Validator validator() {
+
 		return new LocalValidatorFactoryBean();
 	}
 }
