@@ -1,6 +1,7 @@
 package com.Mateusz.musttodoapp.model.projection;
 
 import com.Mateusz.musttodoapp.model.Task;
+import com.Mateusz.musttodoapp.model.TaskGroup;
 
 import java.time.LocalDateTime;
 
@@ -24,7 +25,7 @@ public class GroupTaskWriteModel {
         this.deadline = deadline;
     }
 
-    Task toTask() {
-        return new Task(description, deadline);
+    Task toTask(TaskGroup group) {
+        return new Task(description, deadline, group);
     }
 }
