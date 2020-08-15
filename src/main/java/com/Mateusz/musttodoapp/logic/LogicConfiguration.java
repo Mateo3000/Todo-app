@@ -4,7 +4,6 @@ import com.Mateusz.musttodoapp.TaskConfigurationProperties;
 import com.Mateusz.musttodoapp.model.ProjectRepository;
 import com.Mateusz.musttodoapp.model.TaskGroupRepository;
 import com.Mateusz.musttodoapp.model.TaskRepository;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
