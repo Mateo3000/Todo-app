@@ -1,6 +1,12 @@
 package com.Mateusz.musttodoapp.model;
 
-import javax.persistence.*;
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 import java.util.Set;
 
@@ -8,7 +14,7 @@ import java.util.Set;
 @Table(name = "projects")
 public class Project {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     @NotBlank(message = "Project's description must not be empty")
     private String description;
@@ -16,6 +22,9 @@ public class Project {
     private Set<TaskGroup> groups;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "project")
     private Set<ProjectStep> steps;
+
+    public Project() {
+    }
 
     public int getId() {
         return id;
@@ -29,7 +38,7 @@ public class Project {
         return description;
     }
 
-    void setDescription(final String description) {
+    public void setDescription(final String description) {
         this.description = description;
     }
 
@@ -45,7 +54,7 @@ public class Project {
         return steps;
     }
 
-    void setSteps(final Set<ProjectStep> steps) {
+    public void setSteps(final Set<ProjectStep> steps) {
         this.steps = steps;
     }
 }

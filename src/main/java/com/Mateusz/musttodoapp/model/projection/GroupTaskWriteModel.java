@@ -2,11 +2,15 @@ package com.Mateusz.musttodoapp.model.projection;
 
 import com.Mateusz.musttodoapp.model.Task;
 import com.Mateusz.musttodoapp.model.TaskGroup;
+import org.springframework.format.annotation.DateTimeFormat;
 
+import javax.validation.constraints.NotBlank;
 import java.time.LocalDateTime;
 
 public class GroupTaskWriteModel {
+    @NotBlank(message = "Task's description must not be empty")
     private String description;
+    @DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm")
     private LocalDateTime deadline;
 
     public String getDescription() {
@@ -25,7 +29,7 @@ public class GroupTaskWriteModel {
         this.deadline = deadline;
     }
 
-    Task toTask(TaskGroup group) {
+    Task toTask(final TaskGroup group) {
         return new Task(description, deadline, group);
     }
 }

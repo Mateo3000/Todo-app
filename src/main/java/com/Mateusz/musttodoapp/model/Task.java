@@ -1,6 +1,13 @@
 package com.Mateusz.musttodoapp.model;
 
-import javax.persistence.*;
+import javax.persistence.Embedded;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 import java.time.LocalDateTime;
 
@@ -27,11 +34,12 @@ public class Task {
         this(description, deadline, null);
     }
 
-
     public Task(String description, LocalDateTime deadline, TaskGroup group) {
         this.description = description;
         this.deadline = deadline;
-        this.group = group;
+        if (group != null) {
+            this.group = group;
+        }
     }
 
     public int getId() {

@@ -1,5 +1,6 @@
 package com.Mateusz.musttodoapp.logic;
 
+import com.Mateusz.musttodoapp.model.Project;
 import com.Mateusz.musttodoapp.model.TaskGroup;
 import com.Mateusz.musttodoapp.model.TaskGroupRepository;
 import com.Mateusz.musttodoapp.model.TaskRepository;
@@ -19,7 +20,11 @@ public class TaskGroupService {
     }
 
     public GroupReadModel createGroup(final GroupWriteModel source) {
-        TaskGroup result = repository.save(source.toGroup());
+        return createGroup(source, null);
+    }
+
+    GroupReadModel createGroup(final GroupWriteModel source, final Project project) {
+        TaskGroup result = repository.save(source.toGroup(project));
         return new GroupReadModel(result);
     }
 
